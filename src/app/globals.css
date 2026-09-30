@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* next-themes toggles a `.dark` class on <html>; this makes Tailwind's `dark:`
+   variant follow that class instead of the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Palette drawn from the campus: Doon valley pine, Himalayan morning mist and
+   TIS yellow. Components never use hex values — only the semantic tokens below —
+   so switching theme is just swapping these variables. */
+:root {
+  --paper: #f1f4ef;
+  --paper-raised: #ffffff;
+  --paper-sunken: #e3e9e2;
+  --ink: #0c1a14;
+  --ink-muted: #52615a;
+  --line: rgb(12 26 20 / 0.14);
+  --accent: #f5b800;
+  --accent-ink: #7a5500;
+  --on-accent: #0c1a14;
+  /* Deep pine bands stay dark in both themes to pace the page. */
+  --forest: #0e2a1f;
+  --on-forest: #eef2ec;
+  --on-forest-muted: #9db2a5;
+  --danger: #b42318;
+}
+
+.dark {
+  --paper: #07130e;
+  --paper-raised: #0e2019;
+  --paper-sunken: #040b08;
+  --ink: #eef2ec;
+  --ink-muted: #9daea3;
+  --line: rgb(238 242 236 / 0.14);
+  --accent: #ffc61a;
+  --accent-ink: #ffd24d;
+  --on-accent: #0c1a14;
+  --forest: #12301f;
+  --on-forest: #eef2ec;
+  --on-forest-muted: #9db2a5;
+  --danger: #fda29b;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunken: var(--paper-sunken);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+  --color-forest: var(--forest);
+  --color-on-forest: var(--on-forest);
+  --color-on-forest-muted: var(--on-forest-muted);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-bricolage);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* One shared page width and gutter so every section lines up on the same grid. */
+@utility container-page {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+/* Bricolage Grotesque has a width axis: headlines use the condensed cut for an
+   athletic, poster-like voice, body text stays at normal width. */
+@utility font-condensed {
+  font-variation-settings: "wdth" 75;
+}
+
+@layer base {
+  html {
+    /* Leaves room for the sticky navbar when jumping to #anchors. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    /* Guards against any section accidentally causing sideways scroll on mobile. */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-accent text-on-accent;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-accent;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}

@@ -2,12 +2,12 @@ import Reveal from "@/components/ui/Reveal/Reveal";
 
 const tones = {
   paper: { label: "text-accent-ink", body: "text-ink-muted" },
-  forest: { label: "text-accent", body: "text-on-forest-muted" },
+  band: { label: "text-accent", body: "text-on-band-muted" },
 };
 
 // Shared heading block: short label, condensed display title, optional intro.
 // `id` goes on the <h2> so the parent <section aria-labelledby={id}> is named
-// by its visible heading for screen readers. `tone="forest"` is for the dark bands.
+// by its visible heading for screen readers. `tone="band"` is for the dark bands.
 export default function SectionHeading({
   id,
   label,

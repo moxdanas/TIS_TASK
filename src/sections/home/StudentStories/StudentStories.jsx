@@ -2,13 +2,13 @@ import Image from "next/image";
 import Reveal from "@/components/ui/Reveal/Reveal";
 import { studentStories } from "@/data/home";
 
-// Two student voices on a dark pine band. The second quote sits lower than the
+// Two student voices on a deep red band. The second quote sits lower than the
 // first on large screens, so the pair reads like a conversation, not a grid.
 export default function StudentStories() {
   return (
     <section
       aria-labelledby="student-stories-title"
-      className="bg-forest py-28 text-on-forest sm:py-36"
+      className="bg-band py-28 text-on-band sm:py-36"
     >
       <div className="container-page">
         <h2 id="student-stories-title" className="text-sm font-medium text-accent">
@@ -45,7 +45,7 @@ export default function StudentStories() {
                   </span>
                   <span className="flex flex-col">
                     <span className="font-medium">A Tulas student</span>
-                    <span className="text-sm text-on-forest-muted">{story.context}</span>
+                    <span className="text-sm text-on-band-muted">{story.context}</span>
                   </span>
                 </figcaption>
               </figure>

@@ -4,10 +4,10 @@ import { site, toTelHref } from "@/data/site";
 // prospective parent, so it sits above everything else on every screen size.
 export default function TopBar() {
   return (
-    <div className="bg-forest text-on-forest">
+    <div className="bg-band text-on-band">
       <div className="container-page flex h-10 items-center justify-between gap-6 text-sm">
         <p>
-          <span className="text-on-forest-muted">Admission helpline </span>
+          <span className="text-on-band-muted">Admission helpline </span>
           <a
             href={toTelHref(site.admissionHelpline)}
             className="font-medium underline-offset-4 hover:underline"

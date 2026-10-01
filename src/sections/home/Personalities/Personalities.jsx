@@ -49,7 +49,7 @@ export default function Personalities() {
           </ul>
 
           <div className="hidden lg:col-span-5 lg:block">
-            <div className="sticky top-28 aspect-[3/2] overflow-hidden rounded-[2rem] bg-forest">
+            <div className="sticky top-28 aspect-[3/2] overflow-hidden rounded-[2rem] bg-band">
               <AnimatePresence initial={false}>
                 <motion.div
                   key={activePerson.slug}

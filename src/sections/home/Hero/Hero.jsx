@@ -90,10 +90,10 @@ export default function Hero() {
               className="object-cover"
             />
           </motion.div>
-          {/* A pine panel that lifts away on load, uncovering the photo. */}
+          {/* A red panel that lifts away on load, uncovering the photo. */}
           <motion.div
             aria-hidden="true"
-            className="absolute inset-0 origin-top bg-forest"
+            className="absolute inset-0 origin-top bg-band"
             initial={{ scaleY: 1 }}
             animate={{ scaleY: 0 }}
             transition={{ duration: DURATION.slow * 1.4, ease: EASE_OUT_EXPO, delay: 0.5 }}

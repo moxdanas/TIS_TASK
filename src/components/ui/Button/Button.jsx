@@ -15,7 +15,7 @@ const variants = {
     hover: "group-hover:text-paper group-focus-visible:text-paper",
   },
   inverse: {
-    rest: "border border-on-forest/30 text-on-forest",
+    rest: "border border-on-band/30 text-on-band",
     fill: "bg-accent",
     hover: "group-hover:text-on-accent group-focus-visible:text-on-accent",
   },

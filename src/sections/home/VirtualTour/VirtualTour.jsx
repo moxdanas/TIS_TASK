@@ -24,10 +24,10 @@ export default function VirtualTour() {
               sizes="(min-width: 1440px) 1344px, 100vw"
               className="object-cover transition-transform duration-1000 ease-out-expo group-hover:scale-105"
             />
-            <div aria-hidden="true" className="absolute inset-0 bg-forest/55" />
+            <div aria-hidden="true" className="absolute inset-0 bg-band/55" />
             <h2
               id="virtual-tour-title"
-              className="absolute inset-x-6 top-6 max-w-3xl font-condensed text-5xl leading-[0.9] font-bold tracking-tight text-on-forest sm:inset-x-10 sm:top-10 sm:text-7xl lg:text-8xl"
+              className="absolute inset-x-6 top-6 max-w-3xl font-condensed text-5xl leading-[0.9] font-bold tracking-tight text-on-band sm:inset-x-10 sm:top-10 sm:text-7xl lg:text-8xl"
             >
               {virtualTour.title}
             </h2>

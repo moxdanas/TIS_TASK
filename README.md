@@ -2,8 +2,8 @@
 
 An animated, conversion-focused redesign of the [Tulas International School](https://tis.edu.in/)
 homepage, built as a frontend take-home task. TIS copy and contact details are kept; layout,
-typography and motion are rebuilt with a palette taken from the campus itself: Doon valley
-pine, Himalayan morning mist and TIS yellow.
+typography and motion are rebuilt around a deep oxblood red, a warm off-white and TIS
+yellow.
 
 **Live demo:** _add Vercel link_
 
@@ -75,7 +75,7 @@ src/
   re-renders.
 - **Only `transform` and `opacity` are animated.** Even the button hover is a fill scaled on X.
 - **Theme tokens, not hex codes.** Components use semantic colours (`bg-paper`, `text-ink`,
-  `bg-forest`, `bg-accent`), defined once in `globals.css` and swapped under `.dark`.
+  `bg-band`, `bg-accent`), defined once in `globals.css` and swapped under `.dark`.
 - **Reduced motion.** `MotionConfig reducedMotion="user"` turns off transform animations
   site-wide. Components that change their structure (the pinned scroll, the marquee) use a
   hydration-safe `usePrefersReducedMotion` hook, so server and client HTML always match.
@@ -91,4 +91,3 @@ src/
   the next step.
 - **Parent review texts** weren't published on the homepage, so reviewers are shown by
   name and photo only.
-# TIS_TASK

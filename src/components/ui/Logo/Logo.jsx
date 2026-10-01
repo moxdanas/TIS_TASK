@@ -19,11 +19,11 @@ function LightTextLogo({ className = "" }) {
   );
 }
 
-// tone="ink": navbar (switches with the theme). tone="forest": always-dark areas.
+// tone="ink": navbar (switches with the theme). tone="band": always-dark areas.
 export default function Logo({ tone = "ink" }) {
   return (
     <a href="#main-content" className="flex items-center">
-      {tone === "forest" ? (
+      {tone === "band" ? (
         <LightTextLogo />
       ) : (
         <>

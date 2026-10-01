@@ -11,7 +11,7 @@ export default function StudentStories() {
       className="bg-band py-28 text-on-band sm:py-36"
     >
       <div className="container-page">
-        <h2 id="student-stories-title" className="text-sm font-medium text-accent">
+        <h2 id="student-stories-title" className="text-sm font-medium text-on-band-muted">
           In their words
         </h2>
         <div className="mt-12 grid gap-20 lg:grid-cols-2 lg:gap-16">

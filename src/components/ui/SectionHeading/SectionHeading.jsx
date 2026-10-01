@@ -2,7 +2,7 @@ import Reveal from "@/components/ui/Reveal/Reveal";
 
 const tones = {
   paper: { label: "text-accent-ink", body: "text-ink-muted" },
-  band: { label: "text-accent", body: "text-on-band-muted" },
+  band: { label: "text-on-band-muted", body: "text-on-band-muted" },
 };
 
 // Shared heading block: short label, condensed display title, optional intro.

@@ -26,9 +26,16 @@ function CursorRing() {
   // mouse costs zero re-renders. React state only changes on hover in/out.
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
-  const springConfig = { stiffness: 500, damping: 40, mass: 0.4 };
-  const ringX = useSpring(pointerX, springConfig);
-  const ringY = useSpring(pointerY, springConfig);
+
+  // The ring trails the pointer (soft spring); the dot tracks it almost
+  // exactly (stiffer spring), so the two layers read as "ring catching up to
+  // dot" rather than moving as one rigid unit.
+  const ringSpring = { stiffness: 260, damping: 32, mass: 0.5 };
+  const dotSpring = { stiffness: 900, damping: 40, mass: 0.3 };
+  const ringX = useSpring(pointerX, ringSpring);
+  const ringY = useSpring(pointerY, ringSpring);
+  const dotX = useSpring(pointerX, dotSpring);
+  const dotY = useSpring(pointerY, dotSpring);
 
   useEffect(() => {
     function handlePointerMove(event) {
@@ -58,36 +65,35 @@ function CursorRing() {
 
   const transition = { duration: DURATION.fast, ease: EASE_OUT_EXPO };
 
-  // Outer layer follows the pointer, the ring scales, and the fill fades in on
-  // hover — three layers so every change is a transform or opacity.
-  // mix-blend-difference inverts whatever is underneath, so one white ring
-  // stays visible on light and dark sections alike.
   return (
-    <motion.div
-      aria-hidden="true"
-      className="pointer-events-none fixed top-0 left-0 z-[100] -mt-5 -ml-5 size-10 mix-blend-difference"
-      style={{
-        // Reduced motion: follow the pointer exactly, with no trailing spring.
-        x: prefersReducedMotion ? pointerX : ringX,
-        y: prefersReducedMotion ? pointerY : ringY,
-      }}
-      initial={false}
-      animate={{ opacity: isVisible ? 1 : 0 }}
-      transition={transition}
-    >
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[100]">
+      {/* Ring: grows and fills with the accent colour over anything hoverable.
+          Reduced motion follows the pointer exactly, with no trailing spring. */}
       <motion.div
-        className="relative size-full rounded-full border border-white"
+        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent bg-accent/20"
+        style={{
+          x: prefersReducedMotion ? pointerX : ringX,
+          y: prefersReducedMotion ? pointerY : ringY,
+        }}
         initial={false}
-        animate={{ scale: isHovering ? 1.6 : 1 }}
+        animate={{
+          opacity: isVisible ? 1 : 0,
+          width: isHovering ? 56 : 32,
+          height: isHovering ? 56 : 32,
+        }}
         transition={transition}
-      >
-        <motion.span
-          className="absolute inset-0 rounded-full bg-white"
-          initial={false}
-          animate={{ opacity: isHovering ? 1 : 0 }}
-          transition={transition}
-        />
-      </motion.div>
-    </motion.div>
+      />
+      {/* Dot: a tight, near-instant marker of the actual pointer position. */}
+      <motion.div
+        className="fixed top-0 left-0 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent"
+        style={{
+          x: prefersReducedMotion ? pointerX : dotX,
+          y: prefersReducedMotion ? pointerY : dotY,
+        }}
+        initial={false}
+        animate={{ opacity: isVisible ? 1 : 0 }}
+        transition={transition}
+      />
+    </div>
   );
 }

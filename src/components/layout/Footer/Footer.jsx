@@ -32,15 +32,22 @@ export default function Footer() {
 
           <div className="flex flex-col gap-3 lg:col-span-3">
             <h2 className="text-sm text-on-band-muted">Get in touch</h2>
-            <a href={toTelHref(site.admissionHelpline)} className="text-lg hover:text-accent">
+            <a
+              href={toTelHref(site.admissionHelpline)}
+              className="text-lg underline-offset-4 hover:underline"
+            >
               {site.admissionHelpline}
             </a>
             {site.landlines.map((landline) => (
-              <a key={landline} href={toTelHref(landline)} className="hover:text-accent">
+              <a
+                key={landline}
+                href={toTelHref(landline)}
+                className="underline-offset-4 hover:underline"
+              >
                 {landline}
               </a>
             ))}
-            <a href={`mailto:${site.email}`} className="hover:text-accent">
+            <a href={`mailto:${site.email}`} className="underline-offset-4 hover:underline">
               {site.email}
             </a>
           </div>
@@ -54,7 +61,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent"
+                    className="underline-offset-4 hover:underline"
                   >
                     {social.label}
                   </a>

@@ -4,39 +4,40 @@
    variant follow that class instead of the OS setting. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Palette: deep oxblood red as the brand colour, a faintly warm off-white and
-   TIS yellow as the accent. Components never use hex values — only the semantic
-   tokens below — so switching theme is just swapping these variables. */
+/* Palette taken from tis.edu.in: their brand red (#b90124), the pale pink tint
+   they use behind sections (#fff5f7) and their dark grey text (#2d2d2d), with TIS
+   yellow as the accent. Components never use hex values, only the semantic
+   tokens below, so switching theme is just swapping these variables. */
 :root {
-  --paper: #f6f1ef;
+  --paper: #fff5f7;
   --paper-raised: #ffffff;
-  --paper-sunken: #ece3e0;
-  --ink: #1c0f10;
-  --ink-muted: #6b5352;
-  --line: rgb(28 15 16 / 0.14);
+  --paper-sunken: #fbe6eb;
+  --ink: #2d2d2d;
+  --ink-muted: #5f5557;
+  --line: rgb(45 45 45 / 0.14);
   --accent: #f5b800;
-  --accent-ink: #8a1c24;
-  --on-accent: #1c0f10;
-  /* Deep red bands stay dark in both themes to pace the page. */
-  --band: #7a1520;
-  --on-band: #fbefee;
-  --on-band-muted: #ecbfbc;
+  --accent-ink: #b90124;
+  --on-accent: #2d2d2d;
+  /* Brand-red bands: the same TIS red in both themes. */
+  --band: #b90124;
+  --on-band: #ffffff;
+  --on-band-muted: #ffd9df;
   --danger: #b42318;
 }
 
 .dark {
-  --paper: #140909;
-  --paper-raised: #221012;
-  --paper-sunken: #0b0505;
-  --ink: #f6ecea;
-  --ink-muted: #b9a2a0;
-  --line: rgb(246 236 234 / 0.14);
+  --paper: #150a0c;
+  --paper-raised: #24121a;
+  --paper-sunken: #0c0506;
+  --ink: #f7eef0;
+  --ink-muted: #bfaeb1;
+  --line: rgb(247 238 240 / 0.14);
   --accent: #ffc61a;
-  --accent-ink: #ffd24d;
-  --on-accent: #1c0f10;
-  --band: #5a0f17;
-  --on-band: #fbefee;
-  --on-band-muted: #ecbfbc;
+  --accent-ink: #ff6b81;
+  --on-accent: #2d2d2d;
+  --band: #b90124;
+  --on-band: #ffffff;
+  --on-band-muted: #ffd9df;
   --danger: #fda29b;
 }
 

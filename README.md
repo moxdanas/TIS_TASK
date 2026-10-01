@@ -2,8 +2,8 @@
 
 An animated, conversion-focused redesign of the [Tulas International School](https://tis.edu.in/)
 homepage, built as a frontend take-home task. TIS copy and contact details are kept; layout,
-typography and motion are rebuilt around a deep oxblood red, a warm off-white and TIS
-yellow.
+typography and motion are rebuilt around the school's own brand red (#b90124, taken from
+tis.edu.in), their pale pink tint and TIS yellow.
 
 **Live demo:** _add Vercel link_
 
